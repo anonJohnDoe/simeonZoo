@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simeons Zoo Game Title</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/knockout-3.4.2.js"></script>
+</head>
+<body>
+<div id="main" class="main onepage-wrapper">
+    <section id="screen1">
+        <div class="background"></div>
+        <div class="text">
+            <input id="userName" data-bind="value: userName, valueUpdate: 'keyup'" type="text" placeholder="your name here"/>
+            <div class="subtitle">goes to the</div>
+            <div class="sign"></div>
+        </div>
+        <div class="hero"></div>
+    </section>
+    <section id="screen2">
+        <div class="background"></div>
+        <div class="calendarPrev"></div>
+        <div class="calendarCur">
+            <div class="curl"></div>
+        </div>
+        <div class="text">
+             <span class="name" data-bind="text: userName"></span> pull of the calendar
+        </div>
+    </section>
+    <section id="screen3">
+        <div class="text">
+            <span class="name" data-bind="text: userName"></span> drag the car
+        </div>
+        <div class="backgroundFore"></div>
+        <div class="backgroundBack"></div>
+        <div id="car">
+            <div id="backWheel"></div>
+            <div id="frontWheel"></div>
+        </div>
+        <div id="road"></div>
+    </section>
+    <section id="screen4">
+        <div class="text">
+            <span class="name" data-bind="text: userName"></span> sees the something about the zoo
+        </div>
+        <div class="foreground">
+            <div id="treeLeft"></div>
+            <div id="treeRight"></div>
+        </div>
+        <div class="background">
+            <div id="sky"></div>
+            <div id="grass">
+                <div id="path"></div>
+            </div>
+        </div>
+
+        <div id="zoo">
+            <div id="zooEntrance"></div>
+        </div>
+    </section>
+    <section id="screen5">
+        <div class="background"></div>
+        <div class="hero"></div>
+        <div class="text">
+            <h1>name of screen 5</h1>
+            <p>text of screen</p>
+        </div>
+    </section>
+    <section id="screen6">
+        <div class="background"></div>
+        <div class="hero"></div>
+        <div class="text">
+            <h1>name of screen 6</h1>
+            <p>text of screen</p>
+        </div>
+    </section>
+
+    <section id="screen7">
+        <div class="background"></div>
+        <div class="hero"></div>
+        <div class="text">
+            <h1>name of screen 7</h1>
+            <p>text of screen</p>
+        </div>
+    </section>
+    <section id="screen8">
+        <div class="background"></div>
+        <div class="hero"></div>
+        <div class="text">
+            <h1>name of screen 8</h1>
+            <p>text of screen</p>
+        </div>
+    </section>
+    <section id="screen9">
+        <div class="background"></div>
+        <div class="hero"></div>
+        <div class="text">
+            <h1>name of screen 9</h1>
+            <p>text of screen</p>
+        </div>
+    </section>
+    <section id="screen10">
+        <div class="background"></div>
+        <div class="hero"></div>
+        <div class="text">
+            <h1>name of screen 10</h1>
+            <p>text of screen</p>
+        </div>
+    </section>
+</div>
+
+<div id="test">
+    name is: <span data-bind="text: userName"></span>
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/Draggable.min.js"></script>
+<!--
+https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/utils/Draggable.min.js
+-->
+<script src="js/jquery.onepage-scroll.min.js"></script>
+<script src="js/knockout-3.4.2.js"></script>
+<script src="js/jquery.lazyloadxt.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

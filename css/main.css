@@ -1,0 +1,625 @@
+*X {
+    border: 1px solid red;
+}
+
+
+
+#main {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#mainNavigator {
+    position: fixed;
+    bottom: 20px;
+    z-index: 50;
+    background: rgba(0,0,0,.6);
+    left: 100%;
+    margin-left: -50%;
+}
+
+#mainNavigator > a {
+    color: #fff;
+    padding: 5px;
+    display: block;
+    float: left;
+}
+
+#mainNavigator > a:hover {
+    background: rgba(200,0,0,1);
+}
+
+#main > section {
+    width: 100%;
+    display: block;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+
+}
+
+
+/*------------------ S C R E E N 1 ----------------*/
+#main > #screen1 > .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("../img/screen1/Screen1_Background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+/*
+<div class="text">
+            <input id="userName" data-bind="value: userName, valueUpdate: 'keyup'" type="text" placeholder="your name here">
+            <div class="subtitle">goes to the</div>
+            <div class="sign"></div>
+        </div>
+        #screen1 > .text > .sign
+*/
+
+#screen1 > .hero,
+#screen1 > .text {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+
+
+}
+
+#screen1 > .text {
+    height: auto;
+    left: 5%;
+    right: 5%;
+    width: auto;
+    top: 50%;
+    margin-top: -117px;
+    border: 1px solid blue;
+}
+
+#screen1 > .text > .sign {
+    background-image: url("../img/screen1/zooSign.png");
+    background-size:contain;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    border: 1px solid red;
+    height: 234px;
+}
+
+
+
+#screen1 .hero {
+    width: 337px;
+    height: 312px;
+    margin-left: -168.5px;
+    bottom: 0;
+    background-image: url("../img/screen1/kid.png");
+}
+
+/* animate hero1of screen 1 on #screen1.active */
+
+
+@keyframes screen1HeroSwing {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(-5deg)}
+    50%{transform: rotate(0deg);}
+    75%{transform: rotate(5deg)}
+    100%{transform: rotate(0deg)}
+}
+
+#screen1.active > .hero{
+    transform-origin: 50% 90%;
+    animation: screen1HeroSwing 3.5s linear forwards infinite;
+    animation-delay: 1.5s;
+}
+
+@keyframes screen1SignPulse {
+    0% {transform: scale(1, 1);}
+    50% {transform: scale(1.1, 1.1);}
+    100% {transform: scale(1, 1);}
+}
+
+#screen1.active .sign{
+    transform-origin: 50% 50%;
+    animation: screen1SignPulse .5s ease-in-out forwards 2;
+    animation-delay: 1s;
+}
+
+
+
+
+/*------------------ L A Z Y  L O A D ----------------*/
+
+.lazy-hidden{
+    background:url("../img/ui/tenor.gif") 50% 50% no-repeat #eee;
+}
+
+.lazy-hidden{
+    opacity:0;
+}
+
+.lazy-loaded{
+    -webkit-transition:opacity .3s;
+    -moz-transition:opacity .3s;
+    -ms-transition:opacity .3s;
+    -o-transition:opacity .3s;
+    transition:opacity .3s;
+    opacity:1;
+}
+
+/*------------------ S C R E E N 2 ----------------*/
+#main > #screen2 > .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url("../img/Screen2/calendarBackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+
+#main > #screen2 > .calendarPrev,
+#main > #screen2 > .calendarCur{
+    position: absolute;
+    left: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+#main > #screen2 > .calendarCur,
+#main > #screen2 > .calendarPrev {
+    width: 640px;
+    height: 498px;
+    margin-left: -320px;
+    margin-top: 159px;
+    background-image: url("../img/Screen2/calendarCurDay.png");
+    z-index: 10;
+    opacity: .5;
+}
+
+
+#main > #screen2 > .calendarCur {
+    z-index: 11;
+    /*
+    clip-path: polygon(74% 0, 100% 0,  100% 100%, 0% 100%, 0 64%);
+    */
+    background-image: url("../img/Screen2/calendarPrevDay.png");
+    opacity: 1;
+}
+
+.curl {
+    width:120px;
+    height:120px;
+    position: absolute;
+    top:0;
+    left:0;
+    background: linear-gradient(
+            135deg,
+            #ffffff00,
+            #00000038 45%,
+            #0000007d 50%,
+            #aaa 50%,
+            #bbb 56%,
+            #ccc 62%,
+            #f3f3f3 80%,
+            #fff 100%
+    );
+    box-shadow : 0 0 10px rgba(0, 0, 0, .5);
+    transition: all .5s ease;
+}
+
+.curl:before,
+.curl:afterX {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 12.5%;
+    bottom: 5.8%;
+    width: 70%;
+    max-width: 300px;
+    max-height: 100px;
+    height: 55%;
+    box-shadow: 0 12px 15px rgba(0, 0, 0, .3);
+    transform: skew(-10deg) rotate(-6deg);
+}
+.curl:after {
+    left: auto;
+    right: 5.8%;
+    bottom: auto;
+    top: 14.16%;
+    transform: skew(-15deg) rotate(-84deg);
+}
+
+.curl:hover {
+    width: 540px;
+    height: 540px;
+}
+
+
+.curl:hover:before,
+.curl:hover:after {
+    box-shadow: 0 24px 30px rgba(0, 0, 0, .3);
+}
+
+#main > #screen2 > .calendarCur {
+
+}
+
+#main > #screen2 > .text > h1 {
+
+}
+
+#main > #screen2 > .text > p {
+
+}
+
+
+/*------------------ S C R E E N  3 ----------------*/
+
+
+
+section > .text,
+#main > #screen3 > .text {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    border: 1px solid red;
+
+}
+
+#main > #screen3 > .backgroundBack,
+#main > #screen3 > .backgroundFore {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("../img/Screen3/backgroundBack.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#main > #screen3 > .backgroundFore {
+    background-image: url("../img/Screen3/backgroundFront.png");
+    background-repeat: repeat;
+    background-size: 1366px 100%;
+    height: 420px;
+    bottom: 0;
+    z-index: 2;
+}
+
+
+#main > #screen3 > #road {
+
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    bottom: 0px;
+    z-index: 3;
+    background-image: url("../img/Screen3/road.png");
+    background-repeat: repeat;
+}
+
+#main > #screen3 > #car {
+    background-image: url("../img/Screen3/car.png");
+    width: 529px;
+    height: 163px;
+    bottom: 80px;
+    position: absolute;
+    z-index:5;
+}
+
+#main > #screen3 > #car {
+
+
+}
+
+div#backWheel,
+div#frontWheel {
+    background-image: url("../img/Screen3/frontWheel.png");
+    width: 83px;
+    height: 83px;
+    position: absolute;
+    left: 64px;
+    bottom: 0px;
+    transform-origin: 50% 50%;
+    animation: screen3WheelsTurn 5.5s linear forwards infinite;
+
+}
+
+div#frontWheel {
+    left: 387px;
+}
+
+@keyframes screen3WheelsTurn {
+    0%{transform: rotate(0deg)}
+    25%{transform: rotate(90deg)}
+    50%{transform: rotate(180deg)}
+    75%{transform: rotate(270deg)}
+    100%{transform: rotate(360deg)}
+}
+
+
+/*------------------ S C R E E N  4 ----------------*/
+
+/*
+  <div class="foreground">
+            <div id="treeLeft"></div>
+            <div id="treeRight"></div>
+        </div>
+        <div class="background">
+            <div id="sky"></div>
+            <div id="grass"></div>
+        </div>
+        <div id="path"></div>
+        <div id="zoo">
+            <div id="zooBuilding">
+                <div id="zooEntrance"></div>
+            </div>
+        </div>
+*/
+
+#main > #screen4 * {
+    border: 1px solid green;
+}
+
+
+#main > #screen4 {
+    text-align: center;
+}
+
+#main > #screen4 > .foreground {
+    position: absolute;
+
+
+}
+
+
+#main > #screen4 > .foreground > #treeRight,
+#main > #screen4 > .foreground > #treeLeft{
+    position: absolute;
+
+}
+#main > #screen4 > .background {
+    width: 100%;
+    height: 100%;
+    background: #86caff;
+    z-index: -1;
+    position: absolute;
+}
+#main > #screen4 > .background > #sky {
+    position: absolute;
+    background-image: url("../img/Screen4/sky.png");
+    width: 100%;
+    top: 0;
+    bottom: 380px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: -1;
+}
+#main > #screen4 > .background > #grass {
+    width: 100%;
+    height: 388px;
+    bottom: 0px;
+    background-image: url("../img/Screen4/grass.png");
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+
+}
+
+#main > #screen4 > .background > #grass > #path {
+    width: 100%;
+    height: 388px;
+    /*
+    margin: 0 auto;
+    */
+    background-image: url("../img/Screen4/path.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#main > #screen4 > #zoo {
+    background-image: url("../img/Screen4/zooEntrance.png");
+    width: 100%;
+    height: 433px;
+    border: 1px solid red;
+    position: absolute;
+    z-index: 6;
+    background-repeat: no-repeat;
+    background-position: center center;
+    bottom: 360px;
+    text-align: center;
+}
+
+
+#main > #screen4 > #zoo > #zooEntrance {
+
+    margin: 0 auto;
+    width: 125px;
+    height: 99px;
+    border: 1px solid #cbd223;
+    background-image: url("../img/Screen4/zooGate.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: 293px;
+
+}
+
+
+
+
+
+/*------------------ S C R E E N  5 ----------------*/
+
+
+
+/*------------------ S C R E E N  6 ----------------*/
+
+
+
+
+
+/*------------------ S C R E E N  7 ----------------*/
+
+
+
+/*------------------ S C R E E N  8 ----------------*/
+
+
+
+/*------------------ S C R E E N  9 ----------------*/
+
+
+
+/*------------------ S C R E E N 1 0 ----------------*/
+
+
+
+
+
+
+
+
+/*------- O N E  P A G E  S C R O L L --------------------*/
+body, html {
+    margin: 0;
+    overflow: hidden;
+    -webkit-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    transition: opacity 400ms;
+    text-align: center;
+}
+
+body, .onepage-wrapper, html {
+    display: block;
+    position: static;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.onepage-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    padding: 0;
+    -webkit-transform-style: preserve-3d;
+}
+
+.onepage-wrapper .section {
+    width: 100%;
+    height: 100%;
+}
+
+
+.onepage-paginationXX {
+    position: absolute;
+    right: 10%;
+    left: 10%;
+    bottom: 10px;
+    z-index: 5;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid blue;
+    width: auto;
+}
+
+
+.onepage-pagination {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 5px;
+    z-index: 5;
+    list-style: none;
+    list-style-type: none;
+
+}
+.onepage-pagination li {
+    padding: 0;
+    text-align: center;
+    /*
+    float: left;
+    */
+    display: inline-block;
+    background: #ffffff47;
+}
+.onepage-pagination li a{
+    padding: 10px;
+    width: 4px;
+    height: 4px;
+    display: block;
+    position: relative;
+
+}
+.onepage-pagination li a:before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0,0,0,0.85);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.onepage-pagination li a.active:before{
+    width: 10px;
+    height: 10px;
+    background: none;
+    border: 1px solid black;
+    margin-top: -4px;
+    left: 8px;
+}
+
+.disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
+    overflow: auto;
+}
+
+.disabled-onepage-scroll .onepage-wrapper .section {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+}
+.disabled-onepage-scroll .onepage-wrapper {
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    transform: none !important;
+    -ms-transform: none !important;
+    min-height: 100%;
+}
+
+
+.disabled-onepage-scroll .onepage-pagination {
+    display: none;
+}
+
+body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html {
+    position: inherit;
+}
+
+
+/* -- test --*/
+#test {
+    position: absolute;
+    z-index:100;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    background: #ffffff5c;
+}

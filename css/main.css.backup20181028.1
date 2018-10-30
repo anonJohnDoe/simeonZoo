@@ -1,0 +1,252 @@
+#main {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    border: 2px solid yellow;
+}
+
+#mainNavigator {
+    position: fixed;
+    bottom: 20px;
+    z-index: 50;
+    background: rgba(0,0,0,.6);
+    left: 100%;
+    margin-left: -50%;
+}
+
+#mainNavigator > a {
+    color: #fff;
+    padding: 5px;
+    display: block;
+    float: left;
+}
+
+#mainNavigator > a:hover {
+    background: rgba(200,0,0,1);
+}
+
+#main > section {
+    width: 100%;
+    display: block;
+    height: 100%;
+    float: left;
+
+}
+
+
+/*------------------ S C R E E N 1 ----------------*/
+#main > #screen1 > .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("../img/screen1/Screen1_Background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#screen1 > .hero,
+#screen1 > .sign {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+
+
+}
+
+#screen1 > .sign {
+
+    height: 234px;
+    left: 5%;
+    right: 5%;
+    width: auto;
+    top: 50%;
+    margin-top: -117px;
+    background-image: url("../img/screen1/zooSign.png");
+    background-size:contain;
+    background-repeat:   no-repeat;
+    background-position: center center;
+
+}
+
+
+
+#screen1 > .hero {
+    width: 337px;
+    height: 312px;
+    margin-left: -168.5px;
+    bottom: 0;
+    background-image: url("../img/screen1/kid.png");
+
+}
+
+/*------------------ L A Z Y  L O A D ----------------*/
+
+.lazy-hidden{
+    background:url("../img/ui/tenor.gif") 50% 50% no-repeat #eee;
+}
+
+.lazy-hidden{
+    opacity:0;
+}
+
+.lazy-loaded{
+    -webkit-transition:opacity .3s;
+    -moz-transition:opacity .3s;
+    -ms-transition:opacity .3s;
+    -o-transition:opacity .3s;
+    transition:opacity .3s;
+    opacity:1;
+}
+
+/*------------------ S C R E E N 2 ----------------*/
+#main > #screen2 > .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url("../img/Screen2/calendarBackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+
+#main > #screen2 > .calendarPrev,
+#main > #screen2 > .calendarCur{
+    position: absolute;
+    left: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+}
+
+#main > #screen2 > .calendarPrev {
+    width: 640px;
+    height: 498px;
+    margin-left: -320px;
+    margin-top: 159px;
+    background-image: url("../img/Screen2/calendarPrevDay.png");
+    z-index: 10;
+
+}
+
+#main > #screen2 > .calendarCur {
+
+
+}
+
+#main > #screen2 > .text > h1 {
+
+
+}
+
+
+#main > #screen2 > .text > p {
+
+
+}
+
+
+/*------- O N E  P A G E  S C R O L L --------------------*/
+body, html {
+    margin: 0;
+    overflow: hidden;
+    -webkit-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    transition: opacity 400ms;
+}
+
+body, .onepage-wrapper, html {
+    display: block;
+    position: static;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.onepage-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    padding: 0;
+    -webkit-transform-style: preserve-3d;
+}
+
+.onepage-wrapper .section {
+    width: 100%;
+    height: 100%;
+}
+
+.onepage-pagination {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    z-index: 5;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.onepage-pagination li {
+    padding: 0;
+    text-align: center;
+}
+.onepage-pagination li a{
+    padding: 10px;
+    width: 4px;
+    height: 4px;
+    display: block;
+
+}
+.onepage-pagination li a:before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(0,0,0,0.85);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.onepage-pagination li a.active:before{
+    width: 10px;
+    height: 10px;
+    background: none;
+    border: 1px solid black;
+    margin-top: -4px;
+    left: 8px;
+}
+
+.disabled-onepage-scroll, .disabled-onepage-scroll .wrapper {
+    overflow: auto;
+}
+
+.disabled-onepage-scroll .onepage-wrapper .section {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+}
+.disabled-onepage-scroll .onepage-wrapper {
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    transform: none !important;
+    -ms-transform: none !important;
+    min-height: 100%;
+}
+
+
+.disabled-onepage-scroll .onepage-pagination {
+    display: none;
+}
+
+body.disabled-onepage-scroll, .disabled-onepage-scroll .onepage-wrapper, html {
+    position: inherit;
+}
